@@ -42,6 +42,9 @@ class AlbumsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = settings.theme.backgroundColor
+        tableView.backgroundColor = settings.theme.backgroundColor
+
         dataSource = AlbumsTableViewDataSource(albums: albums)
         dataSource?.settings = settings
 
@@ -56,8 +59,7 @@ class AlbumsViewController: UIViewController {
         tableView.showsHorizontalScrollIndicator = false
         tableView.register(AlbumCell.self, forCellReuseIdentifier: AlbumCell.identifier)
         tableView.dataSource = dataSource
-        tableView.delegate = self
-        tableView.backgroundColor = .clear
+        tableView.delegate = self        
         view.addSubview(tableView)
 
         let lineHeight: CGFloat = 0.5
